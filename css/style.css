@@ -1,0 +1,217 @@
+/*
+ * Globals
+ */
+
+/* Links */
+a,
+a:focus,
+a:hover {
+  color: #fff;
+}
+
+
+p {
+	font-size: 1.75rem;
+}
+
+/* Custom default button */
+.btn-default,
+.btn-default:hover,
+.btn-default:focus {
+  color: #fff;
+  text-shadow: none; /* Prevent inheritence from `body` */
+  background-color: #65ba99;
+  border: 1px solid #65ba99;
+  border-radius: 5px 5px;
+  padding: 10px 10px;
+}
+
+
+/*
+ * Base structure
+ */
+
+html,
+body {
+  height: 100%;
+  background-color: #ce4b4f;
+  padding: 1em 1em;
+}
+
+body {
+  color: #fff;
+  text-align: center;
+/*  text-shadow: 0 1px 3px rgba(0,0,0,.5); */
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 100;
+}
+
+/* Extra markup and styles for table-esque vertical and horizontal centering */
+.site-wrapper {
+  display: table;
+  width: 100%;
+  height: 100%; /* For at least Firefox */
+  min-height: 100%;
+  background-color: #1583c9;
+ -webkit-box-shadow: inset 0 0 100px rgba(0,0,0,.5);
+          box-shadow: inset 0 0 100px rgba(0,0,0,.5);
+}
+.site-wrapper-inner {
+  margin: 0 auto;
+  vertical-align: top;
+}
+.cover-container {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+/* Padding for spacing */
+.inner {
+  padding: 30px;
+}
+
+
+/*
+ * Header
+ */
+
+.masthead {
+	padding-bottom: 3rem;
+}
+
+
+.masthead-brand {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.masthead-nav > li {
+  display: inline-block;
+}
+.masthead-nav > li + li {
+  margin-left: 20px;
+}
+.masthead-nav > li > a {
+  padding-right: 0;
+  padding-left: 0;
+  font-size: .85em;
+  font-weight: 100;
+  color: #fff; /* IE8 proofing */
+  color: rgba(255,255,255,.75);
+  border-bottom: 2px solid transparent;
+  text-decoration: none;
+}
+.masthead-nav > li > a:hover,
+.masthead-nav > li > a:focus {
+  background-color: transparent;
+  border-bottom-color: #a9a9a9;
+  border-bottom-color: rgba(255,255,255,.25);
+}
+.masthead-nav > .active > a,
+.masthead-nav > .active > a:hover,
+.masthead-nav > .active > a:focus {
+  color: #fff;
+  border-bottom-color: #fff;
+}
+
+@media (min-width: 768px) {
+  .masthead-brand {
+    float: left;
+  }
+  .masthead-nav {
+    float: right;
+  }
+}
+
+.beers-won ul li {
+	list-style-type: none;
+	display: inline-block;
+}
+
+/*
+ * Stats-bar
+ */
+
+.stats-bar {
+  background-color: #ce4b4f;
+  padding: 2rem 0 1rem 0;
+}
+
+.shadow {
+  -webkit-box-shadow: 0 5px 5px 0 #000;  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+  -moz-box-shadow:    0 5px 5px 0 #000;  /* Firefox 3.5 - 3.6 */
+  box-shadow:         0 5px 5px 0 #000;  /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
+}
+
+/*
+ * QA section
+*/
+
+.qa {
+	padding: 4rem 0;
+}
+
+.question-block {
+	padding-bottom: 4rem;
+}
+
+.choices-block {
+	margin: 0 auto;
+	padding: 4rem 4rem;
+}
+
+.choices-block li:hover {
+	background-color: rgba(0,0,0, .5);
+	-webkit-transition: opacity .25s ease;
+	-moz-transition: opacity .25s ease;}
+}
+
+
+/*
+*/
+
+/*
+ * Footer
+ */
+
+.mastfoot {
+  color: #999; /* IE8 proofing */
+  color: rgba(255,255,255,.5);
+}
+
+
+/*
+ * Affix and center
+ */
+
+@media (min-width: 768px) {
+  /* Pull out the header and footer */
+  .masthead {
+/*    position: fixed; */
+    top: 0;
+  }
+  .mastfoot {
+/*    position: fixed; */
+    bottom: 0;
+  }
+  /* Start the vertical centering */
+  .site-wrapper-inner {
+    vertical-align: top;
+  }
+  /* Handle the widths */
+  .masthead,
+  .mastfoot,
+  .quiz-container {
+    width: 100%; /* Must be percentage or pixels for horizontal alignment */
+  }
+}
+
+/*@media (min-width: 992px) {
+  .masthead,
+  .mastfoot,
+  .cover-container {
+    width: 700px;
+  }
+}
+
+
