@@ -10,15 +10,14 @@
     <title>Quiz App</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
     <!-- Custom styles for this template -->
     <link href="css/style.css" rel="stylesheet">
 
     <!-- Google fonts -->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
-    
-    <script src="js/app.js"></script>
+  
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- [if lt IE 9] -->
@@ -52,13 +51,11 @@
               <div class="row">
                 <div class="col-md-4">
                   <p>Question<br></p>
-                  <h2><span id="count">0</span>/5</h2>
+                  <h2 style="text-align: center;"><span id="qNum">0</span>/5</h2>
                 </div>
-                <div class="col-md-4 beers-won">
+                <div class="col-md-4" id='beers-won'>
                     <p style><strong>Beers Won</strong></p>
                     <ul>
-                    <li><img src="images/beer1.svg" width="35px"></li>
-                    <li><img src="images/beer2.svg" width="35px"></li>
                     </ul>
                 </div>
                 <div class="col-md-4" id="timer-block">
@@ -72,21 +69,24 @@
           <section class="qa">
             <div class="container">
               <div class="sm-col-12">
-                <p id="#question-block"></p>
+                <p id="question-block"></p>
               </div>
             </div>
 
-            <div id="choices" class="row">
-                  <ul>
-                    <li class="choices-block col-xs-6 col-xs-offset-3 col-sm-4 col-md-4 col-lg-4"><img src="images/Odell_Brewing_Company_logo.png" width="50%" class="choice1">
+            <div id="choices-block" class="row">
+                  <!--
+                    <li id="choice1"
+                    
+                    class="choices-block col-xs-6 col-xs-offset-3 col-sm-4 col-md-4 col-lg-4"><img src="images/Odell_Brewing_Company_logo.png" width="50%">
                       </li>
 
-                    <li class="choices-block col-xs-6 col-xs-offset-3 col-sm-4 col-md-4 col-lg-4"><img src="images/Odell_Brewing_Company_logo.png" width="50%" class="choice2">
+                    <li id="choice2" class="choices-block col-xs-6 col-xs-offset-3 col-sm-4 col-md-4 col-lg-4"><img src="images/Odell_Brewing_Company_logo.png" width="50%" class="choice2">
                     </li>
 
-                    <li class="choices-block col-xs-6 col-xs-offset-3 col-sm-4 col-md-4 col-lg-4"><img src="images/Odell_Brewing_Company_logo.png" width="50%" class="choice3">
+                    <li id="choice3" class="choices-block col-xs-6 col-xs-offset-3 col-sm-4 col-md-4 col-lg-4"><img src="images/Odell_Brewing_Company_logo.png" width="50%" class="choice3">
                     </li> 
-                  </ul>                                  
+
+                     -->                           
             </div>
 <!-- Remove for now 
             <div class="row">
@@ -114,9 +114,7 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="../../dist/js/bootstrap.min.js"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+    <script src="js/app.js"></script>
   
 
 </body></html>

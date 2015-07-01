@@ -75,6 +75,7 @@ body {
  * Header
  */
 
+
 .masthead {
 	padding-bottom: 3rem;
 }
@@ -123,7 +124,7 @@ body {
   }
 }
 
-.beers-won ul li {
+#beers-won ul li {
 	list-style-type: none;
 	display: inline-block;
 }
@@ -155,16 +156,23 @@ body {
 	padding-bottom: 4rem;
 }
 
-.choices-block {
+.choice {
 	margin: 0 auto;
 	padding: 4rem 4rem;
+  list-style-type: none;
+  display: inline-block;
 }
 
-.choices-block li:hover {
-	background-color: rgba(0,0,0, .5);
-	-webkit-transition: opacity .25s ease;
-	-moz-transition: opacity .25s ease;}
+#theImg {
+  width: 14em ;
+  height: 14em;
 }
+
+#theImg:hover {
+  background-color: rgba(0,0,0,.5);
+  -webkit-transition: opacity .25s ease;
+  -moz-transition: opacity .25s ease;
+  margin: 10px 10px;
 
 
 /*
