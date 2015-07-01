@@ -163,6 +163,7 @@ body {
   display: inline-block;
 }
 
+
 #theImg {
   width: 14em ;
   height: 14em;
@@ -173,7 +174,13 @@ body {
   -webkit-transition: opacity .25s ease;
   -moz-transition: opacity .25s ease;
   margin: 10px 10px;
+}
 
+button {
+  color: #000;
+  background-color: white;
+
+}
 
 /*
 */

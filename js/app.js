@@ -1,39 +1,40 @@
 $(document).ready(function() {
 
-
+	$(':button').hide();
 	var currentQuestion;
 	var score;
 
 	var newGame = function(){
+		$('#beers-won>ul').empty();
 		currentQuestion = 0;
 		score = 0;
 		changeQ();
 	}
 
 	var allQuestions = [{
-		question      :   "What is the name of the Game0?",  
-		choices       : 	[ "images/Odell_Brewing_Company_logo.png",
-		"images/Odell_Brewing_Company_logo.png",
-		"images/Odell_Brewing_Company_logo.png"],
+		question      :   "Which of these breweries is located in Denver, CO?",  
+		choices       : 	[ "images/odell.png",
+		"images/newBelgium.png",
+		"images/greatDivide.png"],
 		beers         :   "images/beer1.svg",
-		correctAnswer :   2
+		correctAnswer :   2,
 		
 	},
 	{
-		question      :   "What is the name of the Game1?",  
+		question      :   "Which is the oldest brewery in Colorado?",  
 		choices       : 	[ "images/Odell_Brewing_Company_logo.png",
 		"images/Odell_Brewing_Company_logo.png",
-		"images/Odell_Brewing_Company_logo.png"],
+		"images/new_belgium.jpg"],
 		beers         :   "images/beer2.svg",
-		correctAnswer :   2
+		correctAnswer :   1
 		
 	},
 	{
-		question      :   "What is the name of the Game2?",  
+		question      :   "Which one of these breweries exclusively makes gluten free beer?",  
 		choices       : 	[ "images/Odell_Brewing_Company_logo.png",
 		"images/Odell_Brewing_Company_logo.png",
 		"images/Odell_Brewing_Company_logo.png"],
-		beers         :   "images/beer3.svg",
+		beers         :   "images/beer5.svg",
 		correctAnswer :   2
 		
 	}];
@@ -55,7 +56,6 @@ function timer() {
 
 	$('#timer').html(countDown);
 }
-
 
 //Add new questions
 
@@ -86,24 +86,35 @@ function addChoices(choices) {
 
 		var idx = this.getAttribute('data-index');
 		console.log(idx);
+		clearInterval(countTimer);
+		$('#choices-block').hide();
+		$(':button').show();
+
 		if (idx == allQuestions[currentQuestion].correctAnswer) {
 	    		// do correct question logic here
 	    	//	.css('background-color', 'green');
+	    		$('#comment').css('color', '#f2ff5c').html("<strong>Good job! That's correct! You know your Colorado breweries well!<br></strong>");
 	    		$(document.createElement('li')).appendTo('#beers-won>ul').html('<img src="' + allQuestions[currentQuestion]['beers'] + '" width="30px"' + '/>'); 
 	    		score++;
-	    		//("CORRECT!");
+	    		//("CORRECT!")s;
 	    	} else {
 	    		// do incorrect question logic here
-	    		alert("INCORRECT");
+	    		$('#comment').css('color', '#f2ff5c').html("<strong>Sorry, but that's not the correct answer. Great Divide is the brewery located in Denver. The other two are in Fort Collins</strong>"); 
 	    	}
 
+	    	$(':button').on('click', function(){ 
 	    	if (currentQuestion + 1 == allQuestions.length) {
 	    		countDown = 0;
 	    		alert("You answered " + score + " questions correctly. Thank you for playing!");
 	    	} else {
+	    		$('#comment').hide();
+	    		$(':button').hide();
+	    		$('#choices-block').show();
 	    		currentQuestion++;
+
 	    		changeQ();
 	    	}
+	    });
 	    });
 }
 
