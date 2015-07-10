@@ -26,7 +26,7 @@ $(document).ready(function() {
 		correctAnswer: 1,
 		},
 		{
-		question: "What is your Name?",  
+		question: "This is the last question?",  
 		choices: ["images/newBelgium.png", "images/coors.png", "images/miller.png"],
 		beers: "images/beer5.svg",
 		correctAnswer: 2,
