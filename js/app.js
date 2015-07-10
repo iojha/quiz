@@ -51,17 +51,10 @@ $(document).ready(function() {
 			$('#next').hide();
 			$('#yes').show();
 			$('#timer').html("");
+			startQuiz();
 		}
 
-	function startQuiz() {
-		$('#yes').on('click',function(){
-		startTimer();
-		changeQ();
-		});
-	}
-
 	newGame();
-	startQuiz();
 
 //Timer
 	var countDown  = 5;
@@ -89,6 +82,7 @@ $(document).ready(function() {
 function startQuiz() {
 	$(':button').on('click',function(){
 	changeQ();
+	startTimer();
 	});
 }
 
@@ -165,8 +159,8 @@ function startQuiz() {
 // Navbar new-game
 	$('#new-game').on('click',function(){
 		newGame();
-		startQuiz();
 	});
+
 });
 
 
