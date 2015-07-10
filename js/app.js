@@ -1,7 +1,10 @@
 $(document).ready(function() {
 
+	$('#yes').hide();
+
 //Data 
-	var allQuestions = [{
+	var allQuestions = [
+		{
 		question: "Which of these breweries is located in Denver, CO?",  
 		choices: ["images/odell.png", "images/newBelgium.png", "images/greatDivide.png"],
 		beers: "images/beer1.svg",
@@ -20,7 +23,7 @@ $(document).ready(function() {
 		correctAnswer: 2,
 		},
 		{
-		question: "Identify the Finkle and Garf Taproom",  
+		question: "",  
 		choices: [ "images/newBelgTaproom.png", "images/finkle.png", "images/averyTaproom.png"],
 		beers: "images/beer4.svg",
 		correctAnswer: 1,
@@ -32,7 +35,6 @@ $(document).ready(function() {
 		correctAnswer: 2,
 		}
 	];
-
 
 
 	var currentQuestion;
@@ -53,6 +55,7 @@ $(document).ready(function() {
 
 	function startQuiz() {
 		$('#yes').on('click',function(){
+		startTimer();
 		changeQ();
 		});
 	}
@@ -60,17 +63,21 @@ $(document).ready(function() {
 	newGame();
 	startQuiz();
 
-
 //Timer
 	var countDown  = 5;
 	var countTimer = setInterval(startTimer, 1000);
 
 	function startTimer() {
-		if (countDown === 0 ){
+		console.log('test');
+		if (endOfQuiz === true){
 			clearInterval(countTimer);
-			alert("time is up!");
+		} else if (countDown === 0 ){
+			clearInterval(countTimer);
+			$('#yes').hide();
+			$('#choices-block').empty();
+			$('#question-block').html('Time is up!')
+			$('#next').show();
 			currentQuestion++;
-			changeQ();
 		} else {
 			countDown -= 1;
 		}
@@ -79,12 +86,12 @@ $(document).ready(function() {
 	}
 
 
-/*function startQuiz() {
+function startQuiz() {
 	$(':button').on('click',function(){
 	changeQ();
 	});
 }
-*/
+
 
 //Function that triggers functions showNextQuestion, addChoices and evaluate choice
 	function changeQ() {
@@ -110,7 +117,6 @@ $(document).ready(function() {
 		}
 	}
 
-
 //Set choices to #choices-block
 	function addChoices(choices) {
 		$('#choices-block').empty();
@@ -119,6 +125,7 @@ $(document).ready(function() {
 			$('#choices-block>li>#theImg').css('background-color', 'rgba(0, 0, 0, .5)');
 		}
 	}
+
 
 //Evaluate choice made, comment, change score and next steps
 	function evaluateChoice() {
@@ -138,31 +145,34 @@ $(document).ready(function() {
 			}
 
 			$('#next').show();
-			
-			$('#next').on('click', function(){	
-			currentQuestion++;
-			countDown  = 5;
-			startTimer();
-			changeQ();
-			});
 		});
 	}
 
+	$('#next').on('click', function(){	
+		currentQuestion++;
+		countDown  = 5;
+		changeQ();
+	});
+
 //End of Quiz
 	function endOfQuiz() {
-	//    return allQuestions[currentQuestion]['question'] === "0";
 	    $('#timer').html('');
 	    $('#choices-block').empty();
 	    $('#question-block').empty();
 		$('#question-block').html('Thank you for playing. You won ' + score + ' beers out of 5.');
 	}
-	});
-
 
 // Navbar new-game
 	$('#new-game').on('click',function(){
 		newGame();
+		startQuiz();
 	});
+});
+
+
+
+
+
 
 
 
