@@ -2,66 +2,32 @@ $(document).ready(function() {
 
 	$('#yes').hide();
 
-//Data 
-	var allQuestions = [
-		{
-		question: "Which of these breweries is located in Denver, CO?",  
-		choices: ["images/odell.png", "images/newBelgium.png", "images/greatDivide.png"],
-		beers: "images/beer1.svg",
-		correctAnswer: 2,
-		},
-		{
-		question: "Which one of these is the largest brewery in Colorado?",  
-		choices: [ "images/coors.png", "images/newBelgium.png", "images/miller.png"],
-		beers: "images/beer2.svg",
-		correctAnswer: 0
-		},
-		{
-		question: "Identify the Finkle and Garf Taproom",  
-		choices: [ "images/newBelgTaproom.png", "images/finkle.png", "images/averyTaproom.png"],
-		beers: "images/beer3.svg",
-		correctAnswer: 2,
-		},
-		{
-		question: "",  
-		choices: [ "images/newBelgTaproom.png", "images/finkle.png", "images/averyTaproom.png"],
-		beers: "images/beer4.svg",
-		correctAnswer: 1,
-		},
-		{
-		question: "This is the last question?",  
-		choices: ["images/newBelgium.png", "images/coors.png", "images/miller.png"],
-		beers: "images/beer5.svg",
-		correctAnswer: 2,
-		}
-	];
-
-
 	var currentQuestion;
 	var score;
 
 //New game function sets conditions for the new game
 	function newGame(){
-			$('#beers-won>ul').empty();
-			$('#question-block').empty();
-			currentQuestion = 0;
-			score = 0;
-			
-			$('#question-block').html('Ready to play?');
-			$('#next').hide();
-			$('#yes').show();
-			$('#timer').html("");
-			startQuiz();
-		}
+		$('#beers-won>ul').empty();
+		$('#question-block').empty();
+		currentQuestion = 0;
+		score = 0;
+		
+		$('#question-block').html('Ready to play?');
+		$('#next').hide();
+		$('#yes').show();
+		$('#timer').html("");
+		startQuiz();
+	}
 
 	newGame();
 
 //Timer
-	var countDown  = 5;
-	var countTimer = setInterval(startTimer, 1000);
+	var countDown;
+	var countTimer;
 
-	function startTimer() {
-		console.log('test');
+
+	/*function startTimer() {
+		$('#timer').html(countDown);
 		if (endOfQuiz === true){
 			clearInterval(countTimer);
 		} else if (countDown === 0 ){
@@ -74,17 +40,15 @@ $(document).ready(function() {
 		} else {
 			countDown -= 1;
 		}
-
-		$('#timer').html(countDown);
 	}
+	*/
 
 
-function startQuiz() {
-	$(':button').on('click',function(){
-	changeQ();
-	startTimer();
-	});
-}
+	function startQuiz() {
+		$(':button').on('click',function(){
+			changeQ();
+		});
+	}
 
 
 //Function that triggers functions showNextQuestion, addChoices and evaluate choice
@@ -100,6 +64,8 @@ function startQuiz() {
 		addChoices(allQuestions[currentQuestion]['choices']);
 		$('#qNum').html(currentQuestion + 1);		
 		evaluateChoice();
+	//	countDown = 5;
+	//	countTimer = setInterval(startTimer, 1000);
 	}
 
 //Set next question to #question-block
@@ -107,7 +73,7 @@ function startQuiz() {
 		if (allQuestions[currentQuestion] === undefined) {
 			endOfQuiz();
 		} else {
-		return $('#question-block').html(allQuestions[currentQuestion]['question']);
+			return $('#question-block').html(allQuestions[currentQuestion]['question']);
 		}
 	}
 
@@ -144,7 +110,7 @@ function startQuiz() {
 
 	$('#next').on('click', function(){	
 		currentQuestion++;
-		countDown  = 5;
+	//	countDown  = 5;
 		changeQ();
 	});
 
@@ -160,6 +126,41 @@ function startQuiz() {
 	$('#new-game').on('click',function(){
 		newGame();
 	});
+
+	//Data 
+	var allQuestions = [
+		{
+		question: "Which of these breweries is located in Denver, CO?",  
+		choices: ["images/odell.png", "images/newBelgium.png", "images/greatDivide.png"],
+		beers: "images/beer1.svg",
+		correctAnswer: 2,
+		},
+		{
+		question: "Which one of these is the largest brewery in Colorado?",  
+		choices: [ "images/coors.png", "images/newBelgium.png", "images/miller.png"],
+		beers: "images/beer2.svg",
+		correctAnswer: 0
+		},
+		{
+		question: "Identify the Finkle and Garf Taproom",  
+		choices: [ "images/newBelgTaproom.png", "images/finkle.png", "images/averyTaproom.png"],
+		beers: "images/beer3.svg",
+		correctAnswer: 1,
+		},
+		{
+		question: "According to the Brewer's Association which US-based brewery was the 'Top Brewery' in 2014",  
+		choices: [ "images/coors.png", "images/heiniken.png", "images/yuengling.png"],
+		beers: "images/beer4.svg",
+		correctAnswer: 2,
+		},
+		{
+		question: "Which of these Californian breweries exclusively brews Belgians?",  
+		choices: ["images/bruery.png", "images/lagunitas.png", "images/greenFlash.png"],
+		beers: "images/beer5.svg",
+		correctAnswer: 0,
+		}
+	];
+
 
 });
 
